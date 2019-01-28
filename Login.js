@@ -35,10 +35,18 @@ export default class MyLogin extends Component {
                 <TextInput onChangeText={email => this.setState({email})} type="login" style={style.InputBox} placeholder="email adress" placeholderTextColor="#d9d9d9" />
                 <TextInput onChangeText={passw => this.setState({passw})} type="password" style={style.InputBox} placeholder="password" placeholderTextColor="#d9d9d9" />
 
-                <CheckBox center title='Remember me'/>
+                <CheckBox title='Remember me'/>
+
+                <TouchableOpacity>
+                    <Text>Forgot Password?</Text>
+                </TouchableOpacity>
 
                 <TouchableOpacity style={style.LoginButton}>
                     <Text style={style.LoginText} onPress={this.LoginFunction}>LOG IN</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity>
+                    <Text>Don't have an account? Sign up</Text> 
                 </TouchableOpacity>
             </View>
         );
@@ -77,3 +85,4 @@ const style = StyleSheet.create({
         fontWeight: 'bold',
     }
 })
+
