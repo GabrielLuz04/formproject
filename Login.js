@@ -13,7 +13,7 @@ export default class MyLogin extends Component {
     LoginFunction = () => {
         const {email, passw} = this.state;
 
-        if (email=='') {
+        if (email == '') {
             alert('Please, fill the Email box')
         }
         else if (passw == '') {
