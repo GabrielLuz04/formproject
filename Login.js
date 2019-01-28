@@ -85,4 +85,3 @@ const style = StyleSheet.create({
         fontWeight: 'bold',
     }
 })
-
