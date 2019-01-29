@@ -46,7 +46,7 @@ export default class MyLogin extends Component {
                 </TouchableOpacity>
 
                 <TouchableOpacity>
-                    <Text>Don\'t have an account? Sign up</Text> 
+                    <Text>Don't have an account? Sign up</Text> 
                 </TouchableOpacity>
             </View>
         );
