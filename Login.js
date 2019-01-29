@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Image, TouchableOpacity, TextInput, Text, CheckBox, Alert } from 'react-native';
 
-export default class MyLogin extends Component {
+export default class LoginComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -10,7 +10,7 @@ export default class MyLogin extends Component {
         }
     }
 
-    LoginFunction = () => {
+    LoginAlert = () => {
         const {email, passw} = this.state;
 
         if (email == '') {
@@ -34,19 +34,24 @@ export default class MyLogin extends Component {
             <View>
                 <TextInput onChangeText={email => this.setState({email})} type="login" style={style.InputBox} placeholder="email adress" placeholderTextColor="#d9d9d9" />
                 <TextInput onChangeText={passw => this.setState({passw})} type="password" style={style.InputBox} placeholder="password" placeholderTextColor="#d9d9d9" />
+            
+                <View style={{flexDirection: 'row'}}>
+                    <CheckBox style={{paddingLeft: 20}}/>
+                    <Text style={{paddingTop: 5}}>Remember Me</Text>
 
-                <CheckBox title='Remember me'/>
-
-                <TouchableOpacity>
-                    <Text>Forgot Password?</Text>
-                </TouchableOpacity>
+                    <TouchableOpacity>
+                        <Text style={style.ForgotText}>Forgot Password?</Text>
+                    </TouchableOpacity>
+                 </View>
 
                 <TouchableOpacity style={style.LoginButton}>
-                    <Text style={style.LoginText} onPress={this.LoginFunction}>LOG IN</Text>
+                    <Text style={style.LoginText} onPress={this.LoginAlert}>LOG IN</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity>
-                    <Text>Don't have an account? Sign up</Text> 
+                    <Text style={style.SignUpText}>Don't have an account? 
+                        <Text style={{color: '#669900'}}> Sign up ></Text>
+                    </Text> 
                 </TouchableOpacity>
             </View>
         );
@@ -55,7 +60,7 @@ export default class MyLogin extends Component {
 
 const style = StyleSheet.create({
     InputBox: {
-        width: 250,
+        width: 280,
         height: 40,
         justifyContent: 'center',
         alignItems: 'center',
@@ -67,8 +72,17 @@ const style = StyleSheet.create({
         borderRadius: 1.6,
         marginLeft: 15
     },
+    
+    ForgotText: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: 4.7,
+        paddingLeft: 68,
+        color: '#669900'
+    },
+    
     LoginButton: {
-        width: 250,
+        width: 280,
         height: 40,
         borderStyle: 'solid',
         borderWidth: 1.5,
@@ -77,11 +91,20 @@ const style = StyleSheet.create({
         backgroundColor: '#669900',
         justifyContent: 'center',
         alignItems: 'center',
-        margin: 15
+        margin: 15,
+        marginLeft: 14.5
     },
+    
     LoginText: {
         color: "#ffffff",
         fontSize: 20,
         fontWeight: 'bold',
-    }
+    },
+    
+    SignUpText: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: 15,
+        marginLeft: 38  
+    },
 })
